@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hinh chu nhat</title>
+</head>
+<body>
+<canvas id ='myCanvas' width="600" height="300">
+
+</canvas>
+<script>
+
+
+    function Rectangle(width,height){
+        this.width = width;
+        this.height = height;
+
+        this.getPerimeter = function(){return this.width*this.height;};
+        this.getArea = function(){return 2*(this.width+this.height);};
+        this.display = function(){
+            let canvas = document.getElementById('myCanvas');
+            let cvx = canvas.getContext('2d');
+            // cvx.moveTo(0,0);
+            // cvx.lineTo(this.width,0);
+            // cvx.lineTo(this.width,this.height);
+            // cvx.lineTo(0,this.height);
+            // cvx.lineTo(0,0);
+            cvx.fillStyle='red';
+            cvx.fillRect(0, 0, this.width, this.height)
+            cvx.stroke();
+        }
+    }
+
+    let Rectangle1 = new Rectangle(600,300);
+    Rectangle1.display();
+
+</script>
+</body>
+</html>

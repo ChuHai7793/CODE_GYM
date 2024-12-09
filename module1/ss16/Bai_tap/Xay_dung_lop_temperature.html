@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+
+<script>
+
+    function Temperature(celsius) {
+
+        this.celsius = celsius;
+
+        this.toFahrenheit =  function(){return 9/5 * this.celsius + 32;}
+
+        this.toKelvin = function(){return this.celsius + 273.15; }
+    }
+
+    let temp = new Temperature(32);
+    document.write("Nhiệt độ K: " + temp.toKelvin() + "<br>"
+        + "Nhiệt độ F: " + temp.toFahrenheit())
+
+
+</script>
+
+</body>
+</html>

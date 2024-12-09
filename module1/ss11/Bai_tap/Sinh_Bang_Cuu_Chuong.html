@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bang cuu chuong</title>
+</head>
+<body>
+
+<script>
+
+    let bcc = "<table cellpadding='1' cellspacing='1' border='1'"
+    // console.log(1+'+'+2+'='+bcc)
+    for (let i = 1; i <= 9; i++) {
+        bcc += "<tr>"
+        for(let j = 2; j <= 9; j++) {
+            bcc +='<td>'+ j+'*'+i+"="+i*j+"</td>";
+        }
+        bcc += "</tr>";
+    }
+    bcc += "</table>";
+    document.write(bcc);
+</script>
+
+</body>
+</html>

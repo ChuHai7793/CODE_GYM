@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TU DIEN</title>
+</head>
+<body>
+<span>Nhap tu</span>
+<input type="text" id="word">
+<button onclick="translator();">Dich</button>
+
+<script>
+
+  function translator() {
+    let word = document.querySelector("#word");
+    console.log(word.value);
+    const engDict = ['cat', 'dog', 'bat'];
+    const vietDict= ['meo', 'cho', 'doi'];
+    let output;
+    if (vietDict.indexOf(word.value)>=0) {
+      output = engDict[vietDict.indexOf(word.value)];
+    }else if (engDict.indexOf(word.value)>=0){
+      output = vietDict[engDict.indexOf(word.value)];
+    }else{
+        console.log('Deo co');
+    }
+
+    console.log(output);
+  }
+
+
+
+
+</script>
+</body>
+</html>
