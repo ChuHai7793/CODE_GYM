@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FORM</title>
+  <style>
+    body{
+      font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+    }
+
+    table,td{
+      border: 1px solid dimgray;
+      border-collapse: collapse;
+      text-align: center;
+      width: 100%;
+
+    }
+
+
+    ul{
+      list-style-type:none;
+      padding-left: 0;
+    }
+    td{
+      height:40px;
+      width: 15%;
+    }
+    td:first-child{
+      /*background-color: red;*/
+      text-align: left;
+      /*width: 300px;*/
+      width: 40%;
+    }
+
+    h3,p{
+      margin: 5px;
+      padding-left: 0;
+
+    }
+    label{
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h3>MARKET RESEARCH SURVEY</h3>
+<p>Please take a few moments to complete this satisfaction survey</p>
+<hr>
+<ul >
+  <li><label>What is your age range? </label><br></li>
+  <li>
+    <select name="Age" style="width:200px;">
+      <option value="young" >18-24</option>
+      <option value="adult">25-40</option>
+      <option value="elder">>40</option>
+    </select>
+  </li>
+
+
+  <li>
+    <label >What is your yearly income range?</label><br>
+    <select name="income" style="width:200px;">
+      <option value="poor" >$0 - $25000 </option>
+      <option value="normal">$25000 - $50000 </option>
+      <option value="rich">>$50000 </option>
+    </select>
+  </li>
+
+  <li>
+    <label>Gender</label><br>
+    <input type="radio" name="gender" value="male" > Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <br>
+    <label >Which of the following products have you purchased in the last 2 months. Please check all that apply.</label><br>
+    <input type="checkbox" name="products" value="Product 1">Product 1<br>
+    <input type="checkbox" name="products" value="Product 2">Product 2<br>
+    <input type="checkbox" name="products" value="Product 3">Product 3<br>
+  </li>
+
+  <li>
+    <label >How often would you use our new product?</label><br>
+    <input type="radio" name="freq" value="daily">Daily<br>
+    <input type="radio" name="freq" value="weekly">Weekly<br>
+    <input type="radio" name="freq" value="monthly">Monthly<br>
+  </li>
+
+  <li>
+    <label >What would you pay for the new product?</label><br>
+    <label style="float:left;">$</label>
+    <span style="float:left;">
+      <input type="text" value="dollar" >
+      <br>
+      <label>Dollar</label>
+    </span>
+    <span style="float:left;">.</span>
+    <span style="float:left;">
+      <input type="text" value="cents">
+      <br>
+      <label>Cents</label><br>
+    </span>
+    <br>
+    <br>
+    <br>
+  </li>
+
+  <li>
+    <label >What features would you like to see in the new product.</label><br>
+    <textarea rows="4" cols="50" style="width: 100%;height: 150px"></textarea>
+    <br>
+    <label >Please rate your level of agreement with the following statements.</label><br>
+    <table>
+      <tr style="background: #9d9895">
+        <td></td>
+        <td>Strongly Disagree</td>
+        <td>Disagree</td>
+        <td>Agree</td>
+        <td>Strongly Agree</td>
+      </tr>
+
+      <tr>
+        <td>Our products are priced fairly.</td>
+        <td><input type="radio" name="satisfy"><br>1</td>
+        <td><input type="radio" name="satisfy"><br>2</td>
+        <td><input type="radio" name="satisfy"><br>3</td>
+        <td><input type="radio" name="satisfy"><br>4</td>
+      </tr>
+
+      <tr style="background: lightgray">
+        <td>Our products are high quality.</td>
+        <td><input type="radio" name="satisfy"><br>1</td>
+        <td><input type="radio" name="satisfy"><br>2</td>
+        <td><input type="radio" name="satisfy"><br>3</td>
+        <td><input type="radio" name="satisfy"><br>4</td>
+      </tr>
+
+      <tr>
+        <td>You would recommend our product to a friend or coworker.</td>
+        <td><input type="radio" name="satisfy"><br>1</td>
+        <td><input type="radio" name="satisfy"><br>2</td>
+        <td><input type="radio" name="satisfy"><br>3</td>
+        <td><input type="radio" name="satisfy"><br>4</td>
+      </tr>
+
+    </table>
+
+  </li>
+</ul>
+<br>
+<input type="submit" value="Submit" style="font-weight:bold;">
+
+
+</body>
+</html>

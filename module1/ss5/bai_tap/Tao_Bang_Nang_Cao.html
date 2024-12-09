@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BANG NANG CAO</title>
+  <style>
+    #table1{
+      background-color: orange;
+      border-collapse: collapse;
+      /*border-spacing:10px;*/
+    }
+    td{
+      border:1px solid black;
+
+
+      padding:0px;
+    }
+    td{
+      width:50px;
+      height:50px;
+    }
+  </style>
+</head>
+<body>
+
+<table id="table1">
+  <tr>
+    <th></th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+  </tr>
+  <tr>
+    <th>A</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>B</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>C</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>D</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>E</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>F</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>G</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>H</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<hr>
+
+<h3>Thang 10 - October</h3>
+<table>
+  <tr>
+    <td>C.Nhat</td>
+    <td>T.Hai</td>
+    <td>T.Ba</td>
+    <td>T.Tu</td>
+    <td>T.Nam</td>
+    <td>T.Sau</td>
+    <td>T.Bay</td>
+  </tr>
+  <tr>
+    <td>Sun</td>
+    <td>Mon</td>
+    <td>Tues</td>
+    <td>Wed</td>
+    <td>Thu</td>
+    <td>Fri</td>
+    <td>Sat</td>
+
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+<script>
+  let tdObjects = document.getElementsByTagName('td');
+    for (let i = 1; i <9; i++) {
+      for (let j = 8*(i-1); j <8*i; j++) {
+        if ((i%2+j%2)!==1){
+          tdObjects[j].style.backgroundColor =  'black';
+        }
+        else{
+          tdObjects[j].style.backgroundColor =  'white';
+        }
+      }
+    }
+
+</script>
+</body>
+</html>
