@@ -58,93 +58,85 @@
                     <button id=${this.name}OnOff>ON/OFF</button>
                     <button id=${this.name}send>Send Message</button>
                     <button id=${this.name}clear>Clear</button>
-                    <button id=${this.name}_sentmsg ">Show Sent Message</button>
+                    <button id="${this.name}_sentmsg">Show Sent Message</button>
                     <button id=${this.name}_receivedmsg>Show Received Message</button>
                     <button id=${this.name}_charge>Charge</button>
                     <textarea id=${this.name}storage rows="4" cols="33"></textarea>
                  </div>`;
 
-            // console.log(`${this.name}`);
-            //console.log(document.getElementById(`${this.name}_sentmsg`));
-            //let s = `${this.name}_sentmsg`;
-            //console.log(s);
-            //console.log(`${this.name}_sentmsg`==="NOKIA_sentmsg");
-            let a = document.getElementById(this.name+`_sentmsg`);
-            console.log(a);
-            a.addEventListener('click', function(){
-                alert(7);
-            });
-            // document.getElementById(`${this.name}_sentmsg`).onclick =
-            //     ()=>{alert(`data`);};
+            console.log(`${this.name}`);
+            console.log(document.getElementById(`${this.name}_sentmsg`));
+
         }
 
         this.initialize();
 
-        // this.chargeBattery = function(){
-        //     this.battery = 100;
-        // };
-        // this.setOnOff = function(){
-        //     this.status = this.status === false;
-        // };
-        // this.getOnOff = function(){
-        //     return this.status !== 0;
-        // };
-        //
-        // this.inputMessage = function(){};
-        //
-        //
-        // this.sendMessage = function(mobile){
-        //     // console.log(`${this.name}msg`);
-        //     const msg = document.getElementById(`${this.name}msg`).value;
-        //     mobile.receivedMsg = msg;
-        //     this.sentMsg += '<br>'+ msg;
-        //     console.log(msg);
-        // };
-        //
-        // this.receiveMessage = function(msg,mobile){
-        //     this.receivedMsg += '<br>'+msg;
-        //
-        // };
-        // this.checkMessage = function(){
-        //     document.getElementById('storage').innerHTML= this.receivedMsg;
-        //     return this.receivedMsg;
-        // };
-        // this.checkSentMessage = function(){
-        //     return this.sentMsg;
-        // };
-        //
-        // this.clear = function(){
-        //     document.getElementById(`${this.name}msg`).value ='';
-        // }
+        this.chargeBattery = function(){
+            this.battery = 100;
+        };
+        this.setOnOff = function(){
+            this.status = this.status === false;
+        };
+        this.getOnOff = function(){
+            return this.status !== 0;
+        };
+
+        this.inputMessage = function(){};
+
+
+        this.sendMessage = function(mobile){
+            // console.log(`${this.name}msg`);
+            const msg = document.getElementById(`${this.name}msg`).value;
+            mobile.receivedMsg = msg;
+            this.sentMsg += msg+',\n';
+            console.log(msg);
+        };
+
+        this.receiveMessage = function(msg,mobile){
+            this.receivedMsg += msg+',\n';
+
+        };
+        this.checkMessage = function(){
+            document.getElementById('storage').innerHTML= this.receivedMsg;
+            return this.receivedMsg;
+        };
+        this.checkSentMessage = function(){
+            return this.sentMsg;
+        };
+
+        this.clear = function(){
+            document.getElementById(`${this.name}msg`).value ='';
+        }
     }
 
     let nokia = new Mobile('NOKIA');
-    // let iphone = new Mobile('IPHONE');
+    let iphone = new Mobile('IPHONE');
 
 
 
-    // document.getElementById('NOKIAsend').onclick = function(){
-    //     nokia.sendMessage(iphone);
-    // }
-    // document.getElementById('NOKIAclear').onclick = function(){
-    //     document.getElementById(`NOKIAmsg`).value = '';
-    // }
-    //
-    //
-    // document.getElementById('IPHONEsend').onclick = function(){
-    //     iphone.sendMessage(nokia);
-    // }
-    // document.getElementById('IPHONEclear').onclick = function(){
-    //     document.getElementById(`IPHONEmsg`).value = '';
-    // }
-    //
-    // document.getElementById(`NOKIA_sentmsg`).onclick =
-    //     ()=>{console.log(`data`);};
-    // let a = document.getElementById(`NOKIA_sentmsg`);
-    // console.log(a);
-    // a.addEventListener('click', function(){
-    //     alert(7);
-    // });
+    document.getElementById('NOKIAsend').onclick = function(){
+        nokia.sendMessage(iphone);
+    }
+    document.getElementById('NOKIAclear').onclick = function(){
+        document.getElementById(`NOKIAmsg`).value = '';
+    }
+    document.getElementById(`NOKIA_sentmsg`).onclick =()=>{
+        document.getElementById(`NOKIAstorage`).innerText = nokia.sentMsg;
+        console.log(nokia.sentMsg);}
+
+
+    document.getElementById('IPHONEsend').onclick = function(){
+        iphone.sendMessage(nokia);
+    }
+    document.getElementById('IPHONEclear').onclick = function(){
+        document.getElementById(`IPHONEmsg`).value = '';
+    }
+    document.getElementById(`IPHONE_sentmsg`).onclick =()=>{
+        document.getElementById(`IPHONEstorage`).innerText = iphone.sentMsg;
+        console.log(iphone.sentMsg);}
+
+
+
 
 </script>
 

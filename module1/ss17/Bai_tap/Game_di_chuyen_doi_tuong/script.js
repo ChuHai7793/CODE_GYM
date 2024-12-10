@@ -16,13 +16,13 @@ function Hero(image, top, left, size){
   }
 
   this.moveRight = function(){
-    this.left += 20;
+    this.left += 10;
     console.log('ok: ' + this.left);
   }
 
 }
 
-var hero = new Hero('pikachu.png', 20, 30, 200);
+var hero = new Hero('Owlet_Monster.png', 10, 30, 100);
 
 function start(){
   if(hero.left < window.innerWidth - hero.size){

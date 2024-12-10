@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CongTac BongDen</title>
+</head>
+<body>
+<script>
+
+
+  function SwitchButton(lamp) {
+    this.status = false;
+    this.lamp = lamp;
+
+    this.connectToLamp = function(lamp) {
+      this.lamp = lamp;
+    }
+    this.switchOff = function() {
+      this.lamp.status = false;
+      return this.status = false;
+    }
+    this.switchOn = function() {
+      this.lamp.status = true;
+      return this.status = true;
+    };
+  }
+
+
+
+  function Lamp(){
+    this.status = false;
+
+    this.turnOff = function() {
+      this.status = false;
+    }
+
+    this.turnOn = function() {
+      this.status = true;
+    }
+
+  }
+  let lamp = new Lamp();
+  let switchButton = new SwitchButton(lamp);
+
+  console.log(switchButton.switchOn());
+  console.log(lamp.status);
+  console.log(switchButton.switchOff());
+  console.log(lamp.status);
+
+</script>
+
+</body>
+</html>

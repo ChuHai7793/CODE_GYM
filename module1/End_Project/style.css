@@ -1,0 +1,17 @@
+/*body{*/
+/*    background-image: url("Gangsters_1/gif/background.png");*/
+/*    background-size: cover;*/
+/*    !*height: 670px;*!*/
+/*    !*width: 1536px;*!*/
+/*}*/
+
+/*#player{*/
+/*    position: absolute;*/
+
+/*}*/
+#gangsterCanvas{
+    border: 5px solid #000;
+    position: absolute;
+    width: 256px;
+    height: 256px;
+}

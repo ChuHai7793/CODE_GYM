@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vong lap 2</title>
+</head>
+<body>
+
+
+<script>
+  // BAI1. In day FIBONACI
+  // let firstNum = 1;
+  // let secondNum = 1;
+  // let length = 10;
+  // let tmp;
+  //
+  // for(let i = 0; i < length; i++){
+  //   tmp = secondNum;
+  //   secondNum = secondNum+firstNum;
+  //   firstNum = tmp;
+  //   // console.log(firstNum);
+  //   console.log(secondNum);
+  // }
+
+  // BAI2. TINH GIAI THUA
+  // function tinhGiaiThua(n){
+  //   if(n === 1){
+  //     return n;
+  //   }
+  //   return n*tinhGiaiThua(n-1);
+  // }
+  // console.log(tinhGiaiThua(5));
+
+  // BAI3. In tam giac vuong
+
+  function printTriangle(start,end) {
+
+    if (start < end) {
+      let output = '';
+      for (let i = start; i <= end; i++) {
+        output += '*';
+        document.write(output + '<br>');
+      }
+    } else {
+      let output = '';
+      for (let i = 0; i <start; i++) {
+        output += '*';
+      }
+      for (let i = start; i >= end; i--) {
+        output = output.substring(0,i) ;
+        document.write(output + '<br>');
+      }
+    }
+  }
+  printTriangle(5,1);
+  printTriangle(1,5);
+
+</script>
+</body>
+</html>
