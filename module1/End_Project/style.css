@@ -1,9 +1,9 @@
-/*body{*/
-/*    background-image: url("Gangsters_1/gif/background.png");*/
-/*    background-size: cover;*/
-/*    !*height: 670px;*!*/
-/*    !*width: 1536px;*!*/
-/*}*/
+body{
+    background-image: url("resources/gif/background.png");
+    background-size: cover;
+    /*height: 670px;*/
+    /*width: 1536px;*/
+}
 
 /*#player{*/
 /*    position: absolute;*/
@@ -14,4 +14,5 @@
     position: absolute;
     width: 256px;
     height: 256px;
+
 }
