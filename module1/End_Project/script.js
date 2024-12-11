@@ -27,7 +27,7 @@ const gangsterImg = new Image();
 // gangsterImg.src = 'resources/Run.png';
 // animate(gangsterImg,5,8)
 
-
+const BG_WIDTH = 1536;
 const GANGSTER_WIDTH = 128;
 const GANGSTER_HEIGHT = 128;
 class Character {
@@ -42,9 +42,14 @@ class Character {
             maxFrames: 5,
             staggerFrames: 8
         };
+
+        this.OFFSET_X = 0
+        this.OFFSET_Y = 200;
+        this.paddingRight = 70;
+        this.paddingLeft = 90;
         this.jumpSpd = 10;
         this.gravity = 10;
-        this.paddingX = 140;
+
         this.animationId = undefined;
         this.isRunning = false;
 
@@ -55,13 +60,17 @@ class Character {
     /* ------------------------------ HORIZONTAL MOVEMENT ------------------------------*/
     // Function to move the character
      run(units) {
-        if (!this.isRunning) return; // Stop if not running
-        this.x += units; // Update horizontal position
+         if (!this.isRunning) return; // Stop if not running
+         this.x += units; // Update horizontal position
 
-         if (this.x > window.innerWidth - this.character.width - this.paddingX) {
-             this.x = this.x - units ;
+         if (this.x > BG_WIDTH - this.character.width-this.paddingRight) {
+             this.x = this.x - units;
              this.character.style.left = this.x + "px"; // Apply new position
-         }else{
+         } else if(this.x < 0 - this.paddingLeft ){
+             this.x = this.x - units;
+             this.character.style.left = this.x + "px"; // Apply new position
+
+         } else {
              this.character.style.left = this.x + "px"; // Apply new position
              this.animationId = requestAnimationFrame(()=>{this.run(units)}); // Continue animation
          }
@@ -92,6 +101,9 @@ class Character {
 
 
     /* ------------------------------ VERTICAL MOVEMENT ------------------------------*/
+    onAirCheck(){
+        return this.y < originalHeight
+    }
 
     moveUp(units) {
         this.y -= units;
