@@ -46,7 +46,7 @@ class Character {
         this.OFFSET_X = 0
         this.OFFSET_Y = 200;
         this.paddingRight = 70;
-        this.paddingLeft = 90;
+        this.paddingLeft = 80;
         this.jumpSpd = 10;
         this.gravity = 10;
 
@@ -220,6 +220,10 @@ bodyElement.addEventListener("keydown", (event) => {
                     PLAYER.jump(event,200,OFFSET_Y);
                 }
             }
+            break;
+        case 'u':
+            PLAYER.state = 'Shot';
+            PLAYER.setAnimation();
 
     }
 });
