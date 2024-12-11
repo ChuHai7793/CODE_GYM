@@ -21,7 +21,7 @@ const gangsterImg = new Image();
 // gangsterImg.src = 'Gangsters_1/Dead.png';
 // animate(gangsterImg,4,20)
 
-// gangsterImg.src = 'Gangsters_1/Shot.png';
+// gangsterImg.src = 'Gangsters_1/Shoot.png';
 // animate(gangsterImg,3,8)
 
 // gangsterImg.src = 'resources/Run.png';
@@ -44,7 +44,7 @@ class Character {
         };
 
         this.OFFSET_X = 0
-        this.OFFSET_Y = 200;
+        this.OFFSET_Y = 435;
         this.paddingRight = 70;
         this.paddingLeft = 80;
         this.jumpSpd = 10;
@@ -97,42 +97,6 @@ class Character {
         this.isRunning = false;
         cancelAnimationFrame(this.animationId); // Stop animation loop
     }
-
-
-
-    /* ------------------------------ VERTICAL MOVEMENT ------------------------------*/
-    onAirCheck(){
-        return this.y < originalHeight
-    }
-
-    moveUp(units) {
-        this.y -= units;
-        this.character.style.top = this.y+ "px";
-    }
-
-    jump(event,maxHeight,originalHeight){
-        const interval = setInterval(() => {
-            if (this.y > maxHeight) {
-                this.moveUp(this.jumpSpd);
-            } else {
-                clearInterval(interval);
-                this.fall(originalHeight)
-            }
-        }, 20);
-    }
-
-    fall(originalHeight) {
-        const interval = setInterval(() => {
-            if (this.y < originalHeight) {
-                this.moveUp(-this.gravity);
-            } else {
-                clearInterval(interval);
-                this.state = 'Idle';
-                this.setAnimation();
-            }
-        },20)
-    }
-
     changeDirection() {
         if (this.direction === "left") {
             this.character.style.transform =  "rotateY(180deg)";
@@ -140,6 +104,51 @@ class Character {
             this.character.style.transform =  "none";
         }
     }
+
+    shoot() {
+
+    }
+    /* ------------------------------ VERTICAL MOVEMENT ------------------------------*/
+    onAirCheck(){
+        return this.y < this.OFFSET_Y
+    }
+
+    moveUp(units) {
+        this.y -= units;
+        this.character.style.top = this.y+ "px";
+    }
+
+    jump(event,maxHeight){
+        const interval = setInterval(() => {
+            if (this.y > maxHeight) {
+                this.moveUp(this.jumpSpd);
+            } else {
+                clearInterval(interval);
+                this.fall()
+            }
+        }, 20);
+    }
+
+    fall() {
+        const interval = setInterval(() => {
+            if (this.onAirCheck()) {
+                this.moveUp(-this.gravity);
+            } else {
+                clearInterval(interval);
+
+                // When there is no other events then set to idle
+                if (this.isRunning){
+                    this.state = 'Run';
+                } else {
+                    this.state = 'Idle';
+                }
+
+                this.setAnimation();
+            }
+        },20)
+    }
+
+
 
     setAnimation() {
         if (this.state === 'start'){
@@ -153,27 +162,23 @@ class Character {
         }
         // console.log(this.FrameStats);
         switch (this.state) {
+            case 'Run':
             case 'Idle':
                 this.FrameStats.maxFrames = 5;
                 this.FrameStats.staggerFrames = 8;
-                // cancelAnimationFrame(this.animationId);
-                // this.animationId = requestAnimationFrame(()=>{animateLoop(this.characterImg,5,8)});
-                // animateLoop(this.characterImg,5,8);
                 break;
-            case 'Run':
 
-                break;
             case 'Dead':
                 this.FrameStats.maxFrames = 4;
                 this.FrameStats.staggerFrames = 20;
                 break;
-            case 'Shot':
+            case 'Shoot':
                 this.FrameStats.maxFrames = 3;
                 this.FrameStats.staggerFrames = 8;
                 break;
             case 'Jump':
-                PLAYER.FrameStats.maxFrames = 9;
-                PLAYER.FrameStats.staggerFrames = 20;
+                this.FrameStats.maxFrames = 9;
+                this.FrameStats.staggerFrames = 20;
 
                 break;
         }
@@ -217,12 +222,12 @@ bodyElement.addEventListener("keydown", (event) => {
                 if(PLAYER.state !== 'Jump'){
                     PLAYER.state = 'Jump';
                     PLAYER.setAnimation();
-                    PLAYER.jump(event,200,OFFSET_Y);
+                    PLAYER.jump(event,200);
                 }
             }
             break;
         case 'u':
-            PLAYER.state = 'Shot';
+            PLAYER.state = 'Shoot';
             PLAYER.setAnimation();
 
     }

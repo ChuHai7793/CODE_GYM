@@ -47,7 +47,7 @@ const gangsterImg = new Image();
 // animateLoop(gangsterImg,4,20);// UNCOMMENT TO TEST
 // requestAnimationFrame(()=>{animate(gangsterImg,4,20)});
 
-// gangsterImg.src = 'resources/Shot.png';
+// gangsterImg.src = 'resources/Shoot.png';
 // requestAnimationFrame(()=>{animate(gangsterImg,3,8)});
 
 // gangsterImg.src = 'resources/Jump.png';
