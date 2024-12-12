@@ -10,7 +10,7 @@ let frameX  = 0 ;
 let frameY = 0;
 let gameFrame = 0;
 // let FrameStats = [maxFrames,staggerFrames]
-function animateLoop(img,FrameStats) {
+export function animateLoop(img,FrameStats) {
     // FrameStats[0] = maxFrames = 5: if there are 6 frames in 1 sprite => FIX BLINKING ISSUE DUE TO SHOWING EMPTY FRAMES
     // maxFrames is changed to suit each sprite
 
@@ -29,10 +29,17 @@ function animateLoop(img,FrameStats) {
 
     gameFrame++;// MOVE TO NEXT FRAME
     // console.log(FrameStats);
-    requestAnimationFrame(()=>{animateLoop(img,FrameStats)});// UNCOMMENT TO TEST
+    return requestAnimationFrame(()=>{animateLoop(img,FrameStats)});// UNCOMMENT TO TEST
 }
 
+export function drawFrame(img,frameX){
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
+    ctx.drawImage(img, frameX*spriteWidth, frameY*spriteHeight,spriteWidth,spriteHeight,
+        0,0,spriteWidth,spriteHeight);
+
+
+}
 
 ////////////////////////// MAIN /////////////////////////////////
 const gangsterImg = new Image();

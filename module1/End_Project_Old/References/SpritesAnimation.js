@@ -1,4 +1,4 @@
-const gangsterCanvas = document.getElementById('background');
+const gangsterCanvas = document.getElementById('gangsterCanvas');
 const ctx = gangsterCanvas.getContext('2d');
 const CANVAS_WIDTH = gangsterCanvas.width = 128;
 const CANVAS_HEIGHT = gangsterCanvas.height = 128;
