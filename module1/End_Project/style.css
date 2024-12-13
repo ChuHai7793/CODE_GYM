@@ -14,8 +14,29 @@ html, body {
 /*    bottom: 0;*/
 /*}*/
 
+#health-bar-container {
+    width: 300px;
+    height: 30px;
+    background-color: #ccc;
+    border: 2px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+#health-bar {
+    width: 100%;
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+}
+
 
 #background{
+    background-image: url("resources/gif/background.png");
+    background-size: cover;
     border: 5px solid #000;
     position: absolute;
     top: 0;

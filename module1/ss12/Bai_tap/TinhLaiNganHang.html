@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    let count=0;
+    function calculateInterest(money,year){
+        if(count===5){return money}
+        count ++;
+        return calculateInterest(money*1.5)
+    }
+    console.log(calculateInterest(100,5));
+</script>
+</body>
+</html>

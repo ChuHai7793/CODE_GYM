@@ -154,9 +154,6 @@ class Character {
         if (this.state === 'start'){
             this.characterImg.src = 'resources/Idle.png';
             animateLoop(this.characterImg,this.FrameStats);
-        // } else if (this.state === 'jump'){
-        //     this.characterImg.src = 'resources/' + this.state + '.png';
-        //     drawFrame(this.characterImg,frameX)
         } else {
             this.characterImg.src = 'resources/' + this.state + '.png';
         }
@@ -203,22 +200,22 @@ bodyElement.addEventListener("keydown", (event) => {
     console.log(event.key);
 
     switch (event.key) {
-        case 'a':
+        case 'z':
             PLAYER.state = 'Run';
             PLAYER.setAnimation();
             PLAYER.moveLeft(5);
             PLAYER.direction = 'left';
             PLAYER.changeDirection();
             break;
-        case 'd':
+        case 'c':
             PLAYER.state = 'Run';
             PLAYER.setAnimation();
             PLAYER.moveRight(5);
             PLAYER.direction = 'right';
             PLAYER.changeDirection();
             break;
-        case 'w':
-            if (event.key === 'w'){
+        case 's':
+            if (event.key === 's'){
                 if(PLAYER.state !== 'Jump'){
                     PLAYER.state = 'Jump';
                     PLAYER.setAnimation();
