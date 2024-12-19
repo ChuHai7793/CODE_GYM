@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+// <!--Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. -->
+// <!--Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.-->
+
+// let numbers = [21,32,41,12,2,3,4,5,6,1];
+//
+// for (let i of numbers) {
+//     if(i>10){
+//         console.log(i);
+//     }
+//
+// }
+
+// <!--Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau.
+// Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.-->
+// let numbers = [21,32,41,12,2,3,4,5,6,1];
+// let max = numbers[0];
+// let maxIndex = 0;
+// for (let i in numbers) {
+//     if(numbers[i]>max){
+//         max = numbers[i];
+//         maxIndex = i;
+//     }
+// }
+// console.log(maxIndex,max);
+// <!--Bài 3- Viết chương trình khởi tạo mảng số nguyên.
+// Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng.-->
+// let numbers = [21,32,41,12,2,3,4,5,6,1];
+// let max = numbers[0];
+// let sum = 0;
+// for (let i in numbers) {
+//     sum += numbers[i];
+//     if(numbers[i]>max){
+//         max = numbers[i];
+//     }
+// }
+// console.log('gia tri max'+max);
+// console.log('gia tri trung binh'+sum/numbers.length);
+// <!--Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó
+// let arrLength = prompt('Nhap so phan tu')
+// let arr = [];
+// let reverse=[];
+// for (let i = 0; i < arrLength ; i++) {
+//     arr[i] = prompt('Nhap vao 1 so nguyen');
+//     reverse.unshift(arr[i]);
+// }
+// console.log(reverse);
+//
+// <!--Bài 5- Viết chương trình đếm số nguyên âm trong một chuỗi-->
+// let numbers = [21,32,-41,12,2,-3,4,5,6,1];
+// let count = 0;
+// for (let i of numbers) {
+//     if(i<0){
+//         count++;
+//     }
+// }
+// console.log(count);
+// <!--Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số nguyên không?
+// Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".-->
+
+// let arr = [];
+// for (let i = 0; i < 3 ; i++) {
+//     arr[i] = prompt('Nhap vao 1 so nguyen');
+// }
+// let v = prompt('Nhap vao V');
+//
+// if (arr.indexOf(v)<0){
+//     console.log('V NOT IN ARRAY');
+// }else{
+//     console.log('V IN ARRAY');
+// }
+
+// <!--Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử,
+// nhập/tạo phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng
+// (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)-->
+// let arr = [];
+// for (let i = 0; i < 3 ; i++) {
+//     arr[i] = prompt('Nhap vao 1 so nguyen');
+// }
+// let v = prompt('Nhap vao V');
+//
+// if (arr.indexOf(v)<0){
+//     console.log('V not in ARRAY');
+// }else{
+//     arr.splice(arr.indexOf(v), 1);
+//     console.log(arr);
+// }
+// <!--Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+// Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.-->
+// let arr = [];
+// for (let i = 0; i < 3 ; i++) {
+//     arr[i] = prompt('Nhap vao 1 so nguyen');
+// }
+// arr.sort(function (a, b) {
+//     return  b-a;
+// })
+// console.log(arr);
+
+// <!--Bài 9- Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b.
+// Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên.
+// Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.-->
+// let a = [21,32,-41,12,2,-3,4,5,6,1];
+// let b = [20,32,-41,12,2,-3,4,5,6,1];
+// let c = a.concat(b);
+// console.log(c);
+</script>
+</body>
+</html>

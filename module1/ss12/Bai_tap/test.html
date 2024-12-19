@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+
+    // Câu 1: Hàm tính diện tích hình tròn (không có tham số)
+    // Đề bài: Viết một hàm tính diện tích hình tròn với bán kính cố định là 5 (sử dụng Math.PI)
+    // và không có tham số.
+
+    function calculateArea() {
+        return Math.PI*5*5;
+    }
+
+
+    //     Câu 2: Hàm tính diện tích hình tròn (có tham số)
+    //
+
+    function calculateArea(radius) {
+
+        return Math.PI*radius*radius;
+    }
+    //     Câu 3: Hàm tính chu vi hình tròn (không có tham số)
+    // Đề bài: Viết một hàm tính chu vi hình tròn với bán kính cố định là 5 (sử dụng Math.PI) và không có tham số.
+
+    function calculatePerimeter() {
+        return Math.PI*5*2;
+    }
+    //     Câu 4: Hàm tính chu vi hình tròn (có tham số)
+    // Đề bài: Viết một hàm tính chu vi hình tròn từ bán kính được truyền vào dưới dạng tham số.
+    function calculatePerimeter(radius) {
+        return Math.PI*radius*2;
+    }
+    //     Câu 5: Kết hợp hàm tính diện tích và chu vi (có tham số)
+    // Đề bài: Viết một hàm có tham số tính đồng thời diện tích và chu vi hình tròn và
+    // in kết quả ra màn hình.
+
+
+    function calculatePerimeter(radius) {
+        console.log("Perimeter : " + Math.PI*radius*2);
+        console.log("Area : " + Math.PI*radius*radius);
+    }
+</script>
+</body>
+</html>
