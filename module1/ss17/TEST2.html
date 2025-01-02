@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        table,th,td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="Add()">Add</button>
+<button onclick="Edit()">Edit</button>
+<button>Delete</button>
+<br>
+<br>
+<br>
+<table id="myTable">
+
+
+
+</table>
+
+<script>
+
+    class HocVien{
+         constructor(maHocVien,ten,lop,email,ngaySinh){
+             this.maHocVien=maHocVien;
+             this.ten=ten;
+             this.lop=lop;
+             this.email=email;
+             this.ngaySinh=ngaySinh;
+         }
+    }
+    let hocVienList = [];
+
+    function updatePage(){
+        let html = document.getElementById("myTable");
+        html.innerHTML = `
+                            <tr>
+                                <th>Ma hoc vien</th>
+                                <th>Ten</th>
+                                <th>Lop</th>
+                                <th>Email</th>
+                                <th>Ngay sinh</th>
+                            </tr>
+                        `;
+        for (let hocVien of hocVienList) {
+            html.innerHTML+=`<tr>
+                        <td>${hocVien.maHocVien}</td>
+                        <td>${hocVien.ten}</td>
+                        <td>${hocVien.lop}</td>
+                        <td>${hocVien.email}</td>
+                        <td>${hocVien.ngaySinh}</td>
+                    </tr>`;
+
+        }
+    }
+    function Add() {
+        let maHocVien = prompt("Nhap Ma hoc vien");
+        let ten = prompt("Nhap Ten");
+        let lop = prompt("Nhap Lop");
+        let email = prompt("Nhap Email");
+        let ngaySinh = prompt("Nhap Ngay sinh");
+
+        hocVienList.push(new HocVien(maHocVien,ten,lop,email,ngaySinh));
+        updatePage();
+
+    }
+
+    function Edit() {
+        let maHocVien = prompt("Nhap Ma hoc vien can sua");
+        let index;
+        for (let hocVien of hocVienList) {
+            if(hocVien.maHocVien===maHocVien){
+                index = hocVienList.indexOf(hocVien);
+                hocVien.ten= prompt("Nhap Ten");
+                hocVien.lop= prompt("Nhap Lop");
+                hocVien.email= prompt("Nhap Email");
+                hocVien.ngaySinh= prompt("Nhap Ngay sinh");
+                updatePage();
+            }
+        }
+
+        if(index===undefined){
+            prompt("Ma hoc vien ko ton tai");
+        }
+    }
+
+</script>
+</body>
+</html>

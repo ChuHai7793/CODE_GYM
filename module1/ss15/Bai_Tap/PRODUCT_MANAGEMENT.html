@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td {
+      padding: 4px 6px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #e6e6e6;
+    }
+
+    form {
+      background-color: #e6e6e6;
+      padding: 20px;
+      width: 70%;
+    }
+
+    button {
+      background-color: #50af50;
+      color: white;
+      border: none;
+      padding: 4px 6px;
+    }
+  </style>
+</head>
+
+<body>
+<h3>Add New Product</h3>
+<form action="" onsubmit="saveProduct(); return false;">
+  <input type="text" placeholder="New Product" name="productName" id="productName">
+  <button type="submit" id="button">Thêm</button>
+</form>
+<h3>Display All Product</h3>
+<div id="content"></div>
+<script>
+  const products = ['Samsung', 'Apple', 'Sony'];
+  let productIndex = -1;
+  function displayProducts() {
+    const content = document.getElementById('content');
+    let table = '<table>';
+    table += '<tr><th style="text-align: left">Product Name</th><th style="text-align: right; font-weight: bold; color: red" colspan="2">' + products.length + ' products</th></tr><tr></tr>';
+    for (let i = 0; i < products.length; i++) {
+      table += '<tr>';
+      table += '<td>' + products[i] + '</td>';
+      table += '<td style="width: 120px; text-align: center"><button onclick="editProduct(' + i + ')">Edit</button></td>';
+      table += '<td style="width: 120px; text-align: center"><button onclick="deleteProduct(' + i + ')">Delete</button></td>';
+      table += '</tr>';
+    }
+    table += '</table>'
+    content.innerHTML = table;
+  }
+  function saveProduct() {
+    const button = document.getElementById("button");
+    console.log(button.innerHTML);
+    if (button.innerHTML === 'Cập nhật') {
+      const productName = document.getElementById("productName");
+      products[productIndex] = productName.value
+      productName.value = '';
+      button.innerHTML = 'Thêm';
+    } else {
+      const productName = document.getElementById("productName");
+      products.push(productName.value);
+    }
+    displayProducts();
+  }
+  function deleteProduct(index) {
+    products.splice(index, 1);
+    displayProducts();
+  }
+  function editProduct(index) {
+    productIndex = index;
+    const productName = document.getElementById("productName");
+    productName.value = products[index];
+    const button = document.getElementById("button");
+    button.innerHTML = 'Cập nhật';
+  }
+  displayProducts();
+</script>
+</body>
+
+</html>

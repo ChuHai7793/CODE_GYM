@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        td,th{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<button onclick="Add()">Add</button>
+<button onclick="Delete()">Delete</button>
+<br>
+<br>
+<table id="myTable"></table>
+
+
+<script>
+    let soTietKiemList = []
+
+    updatePage();
+
+    class SoTietKiem {
+
+        constructor(maSo, loaiTietKiem, tenKhachHang, Cmnd, ngayMoSo, soTienGui) {
+            this.maSo = maSo;
+            this.loaiTietKiem = loaiTietKiem;
+            this.tenKhachHang = tenKhachHang;
+            this.Cmnd = Cmnd;
+            this.ngayMoSo = ngayMoSo;
+            this.soTienGui = soTienGui;
+        }
+    }
+
+    function updatePage() {
+        let html = document.getElementById("myTable");
+        html.innerHTML = `
+                            <tr>
+                                <th>Ma so</th>
+                                <th>Loai tiet kiem</th>
+                                <th>Ho ten khach hang</th>
+                                <th>CMND</th>
+                                <th>Ngay mo so</th>
+                                <th>So tien gui</th>
+                            </tr>
+                        `;
+        for (let soTietKiem of soTietKiemList) {
+            html.innerHTML += `<tr>
+                        <td>${soTietKiem.maSo}</td>
+                        <td>${soTietKiem.loaiTietKiem}</td>
+                        <td>${soTietKiem.tenKhachHang}</td>
+                        <td>${soTietKiem.Cmnd}</td>
+                        <td>${soTietKiem.ngayMoSo}</td>
+                        <td>${soTietKiem.soTienGui}</td>
+                    </tr>`;
+
+        }
+    }
+
+    function isValidDate(dateString) {
+        // Format MMDD/MM/YYYY
+        // const regex = /^\d{2}\/\d{2}\/\d{4}$/;
+        const regex = /^(0?[1-9]|1\d|2[0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/;
+        // 0?[1-9]: Matches numbers from 1 to 9, optionally with a leading zero (e.g., 01, 09).
+        // 1[0-2]: Matches numbers from 10 to 12
+
+        return regex.test(dateString);
+    }
+
+    function canBeConvertedToNumber(str) {
+        return !isNaN(Number(str)) && str.trim() !== "";
+    }
+
+    function isExist(maSo) {
+        let isExist = false;
+        for (let soTietKiem of soTietKiemList) {
+            if (maSo === soTietKiem.maSo) {
+                isExist = true;
+            }
+        }
+        return isExist;
+
+    }
+
+    function Add() {
+
+        let maSo = prompt("Nhap Ma So tiet kiem");
+        while (maSo.length > 5) {
+            maSo = prompt("Qua dai. Nhap lai Ma So tiet kiem");
+        }
+        while (isExist(maSo)) {
+            maSo = prompt("Ma So tiet kiem da ton tai. Nhap lai");
+        }
+
+
+        let loaiTietKiem = prompt("Nhap Loai tiet kiem");
+        while (loaiTietKiem.length > 10) {
+            loaiTietKiem = prompt("Qua dai. Nhap lai Loai tiet kiem");
+        }
+
+        let tenKhachHang = prompt("Nhap Ten khach hang");
+        while (tenKhachHang.length > 30) {
+            tenKhachHang = prompt("Qua dai. Nhap lai Loai tiet kiem");
+        }
+
+        let Cmnd = prompt("Nhap CMND");
+        while (!canBeConvertedToNumber(Cmnd)) {
+            Cmnd = prompt("CMND phai co dang so.Nhap lai CMND");
+        }
+
+
+        let ngayMoSo = prompt("Nhap Ngay mo so");
+        while (!isValidDate(ngayMoSo)) {
+            ngayMoSo = prompt("Sai dinh dang. Nhap lai Ngay mo so")
+        }
+
+        let soTienGui = prompt("Nhap so tien gui");
+        while (!(canBeConvertedToNumber(soTienGui))) {
+            soTienGui = prompt("soTienGui phai co dang so.Nhap lai soTienGui");
+        }
+
+        soTietKiemList.push(new SoTietKiem(maSo, loaiTietKiem, tenKhachHang, Cmnd, ngayMoSo, soTienGui));
+        updatePage();
+    }
+
+
+    function Delete() {
+        let maSo = prompt("Nhap Ma So tiet kiem muon xoa");
+
+        let maSoList = [];
+        soTietKiemList.forEach((soTietKiem) => {
+            maSoList.push(soTietKiem.maSo);
+        });
+        while (maSoList.indexOf(maSo) === -1 && maSo !== null) {
+            maSo = prompt("Nhap lai Ma So tiet kiem muon xoa");
+        }
+
+        if (maSo !== null) {
+            if (confirm("Ban co chac muon xoa?")) {
+                for (let soTietKiemId = 0; soTietKiemId < soTietKiemList.length; soTietKiemId++) {
+                    if (maSo === soTietKiemList[soTietKiemId].maSo) {
+                        soTietKiemList.splice(soTietKiemId, 1);
+                    }
+                }
+                updatePage();
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

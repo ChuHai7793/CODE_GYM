@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    // BAI 1
+    // let arrLength = prompt("Enter array length:")
+    // let arr = [];
+    // let sortArr = [];
+    // let check = true;
+    // let tmp;
+    // for (let i = 0; i < arrLength; i++) {
+    //   tmp = arr.push(parseInt(prompt()));
+    //   sortArr.push(tmp);
+    // }
+    // sortArr = sortArr.sort(function (a, b) {return a - b});
+    //
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (sortArr[i] !== arr[i]) {
+    //     check = false;
+    //     break;
+    //   }
+    // }
+    // console.log(check);
+    //
+
+    // BAI 2
+    // function checkTriangle(x, y, z) {
+    //
+    //     if ((x + y > z && Math.abs(x - y) < z) ||
+    //         (z + y > x && Math.abs(z - y) < x) ||
+    //         (z + x > y && Math.abs(x - z) < y)) {
+    //
+    //         if ((x * x + y * y === z * z) || (z * z + y * y === x * x) || (x * x + z * z === y * y)) {
+    //             console.log("Square triangle");
+    //         } else {
+    //             console.log("Normal triangle");
+    //         }
+    //
+    //     } else {
+    //         console.log("Not a triangle");
+    //     }
+    // }
+
+    // BAI 3
+
+    // let strArr = prompt("Enter array");
+    //
+    // let arr = strArr.split(",");
+    // let check = true;
+    //
+    // for (let i = 0; i < arr.length; i++) {
+    //   if(arr[i] !== arr[arr.length-1-i]){
+    //     check = false;
+    //     break;
+    //   }
+    // }
+    // if(check){
+    //   console.log("OK");
+    // } else {
+    //   console.log("NO");
+    // }
+
+    // BAI 4
+    // function findGCD(a, b) {
+    //   while (b !== 0) {
+    //     let temp = b;
+    //     b = a % b;
+    //     a = temp;
+    //   }
+    //   return a; // Khi b = 0, trả về a
+    // }
+    //
+    // function find(x) {
+    //     let elements = x.split('/');
+    //
+    //     if (elements.length !== 2) {
+    //         console.log("Not fraction");
+    //     } else {
+    //         if (!isNaN(+elements[0]) && !isNaN(+elements[1])) {
+    //             if (+elements[1] === 0) {
+    //                 console.log("Not fraction");
+    //             } else {
+    //
+    //                 let uscln = findGCD(a, b);
+    //                 elements[0] = elements[0]/uscln;
+    //                 elements[1] = elements[1]/uscln;
+    //                 console.log(elements[0] +'/'+elements[1]);
+    //             }
+    //         } else {
+    //           console.log("Not fraction");
+    //         }
+    //     }
+    // }
+    //
+    // find('5/2a');
+
+    // BAI 5
+    function findMaxNumber(num) {
+
+      let str = num.toString();
+      let strArr = str.split('');
+      let numArr = [];
+      if (str.length !== 4) {
+        console.log(-1);
+      } else {
+        for (let i = 0; i < strArr.length; i++) {
+          numArr.push(parseInt(strArr[i]));
+        }
+        let minIndex = numArr.indexOf(Math.min(...numArr));
+        numArr.splice(minIndex, 1);
+
+        let maxNumber = parseInt(numArr.join(""));
+        console.log(maxNumber);
+        }
+    }
+
+    findMaxNumber(1233)
+
+    // BAI 6
+    // function checkEvenArray(arr) {
+    //   let state = arr[0]%2===0
+    //   let check = state?1:0;
+    //   for (let i = 1; i < arr.length; i++) {
+    //     if ((arr[i]%2 === 0)!==state) {
+    //         check = -1;
+    //         break;
+    //     }
+    //   }
+    //   console.log(check);
+    // }
+    // checkEvenArray([4,  2,  6])
+
+    // BAI 7
+
+    // function checkChar(arr) {
+    //   let state = isNaN(arr[0]);
+    //   let check = state?0:1;
+    //   for (let i = 1; i < arr.length; i++) {
+    //     if (isNaN(arr[i])!==state) {
+    //       check = -1;
+    //       break;
+    //     }
+    //   }
+    //   console.log(check);
+    // }
+    // checkChar([  "s",  "a"])
+
+    // BAI 8
+    // function isPrime(number) {
+    //   // Số nhỏ hơn 2 không phải số nguyên tố
+    //   if (number < 2) {
+    //     return false;
+    //   }
+    //   // Kiểm tra từ 2 đến căn bậc hai của số
+    //   for (let i = 2; i <= Math.sqrt(number); i++) {
+    //     if (number % i === 0) {
+    //       return false; // Nếu chia hết thì không phải số nguyên tố
+    //     }
+    //   }
+    //   return true; // Nếu không chia hết cho số nào, là số nguyên tố
+    // }
+    // function checkPrimeArray(array) {
+    //   let check = true;
+    //   for (let i = 0; i < array.length; i++) {
+    //     if (!isPrime(array[i])) {
+    //       check = false;
+    //     }
+    //   }
+    //   return check;
+    // }
+    // console.log(checkPrimeArray([2,3,5]));
+    // BAI 9
+    // let strArr = prompt("Enter array");
+    //
+    // let arr = strArr.split(",");
+    // let check = true;
+    // for (let i = 0; i < arr.length; i+=2) {
+    //
+    //   if (arr[i]>arr[i+1]) {
+    //     check = false;
+    //   }
+    // }
+    // let result = check?"OK":"NO";
+    // console.log(result);
+
+    // BAI 10
+    // let vowelArr = ['u','e','o','a','i','U','E','O','A','I']
+    // let seenArr = [];
+    // function checkString(str){
+    //   for (let i = 0; i < str.length; i++){
+    //     if(vowelArr.indexOf(str[i]) > -1){
+    //       if (seenArr.indexOf(str[i]) === -1){
+    //         seenArr.push(str[i]);
+    //       }
+    //     }
+    //   }
+    //   return seenArr;
+    // }
+    // console.log(checkString(['a','b','c','d','e','f']));
+
+    // let arr = [10, 15, 23, 2, 10];
+    //
+    // function check(arr){
+    //     let check = true;
+    //     for (let i = 0; i < arr.length; i++){
+    //
+    //         if(arr[i] !== arr[arr.length-1-i]){
+    //             check = false;
+    //         }
+    //     }
+    //     return check;
+    // }
+    // console.log(check(arr));
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let tuSo1 = parseInt(prompt("Nhap tu so 1:"));
+    let mauSo1 = 0;
+    while (mauSo1 === 0) {
+        mauSo1 = parseInt(prompt("Nhap mau so 1:"));
+    }
+
+    let tuSo2 = parseInt(prompt("Nhap tu so 2:"));
+    let mauSo2 = 0;
+    while (mauSo2 === 0) {
+        mauSo2 = parseInt(prompt("Nhap mau so 2:"));
+    }
+
+    function compareFraction(tuSo1, tuSo2, mauSo1, mauSo2) {
+        return tuSo1 * mauSo2 === tuSo2 * mauSo1;
+    }
+
+    console.log(compareFraction(tuSo1, mauSo1, tuSo2, mauSo2));
+
+
+</script>
+
+</body>
+</html>

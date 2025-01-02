@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+
+    let a = prompt("Nhap mang so nguyen a gom n phan tu (n<=50)");
+
+    let aArray = a.split(",");
+    while(aArray.length >50){
+        a = prompt("Qua dai. Nhap lai mang so nguyen a gom n phan tu (n<=50)");
+        aArray = a.split(",");
+    }
+
+
+    for (let numberId in aArray) {
+        aArray[numberId] = parseInt(aArray[numberId]);
+    }
+
+
+    let bArray = [];
+    for (let number of aArray) {
+        if (checkPrimeNumber(number)) {
+            bArray.push(number);
+        }
+    }
+
+    document.write("Mang a: <br>");
+    document.write(aArray.join(",") + "<br>");
+    document.write("Mang b: <br>");
+    document.write(bArray.join(","));
+
+    function checkPrimeNumber(num) {
+        if (num <= 1) {
+            return false;
+        }
+        if (num === 2) {
+            return true;
+        }
+        if (num % 2 === 0) {
+            return false;
+        }
+
+        // Chi kiem tra so le den can bac hai.
+        for (let i = 3; i * i <= num; i += 2) {
+            if (num % i === 0) {// Ko phai so nguyen to
+                return false;
+            }
+        }
+        return true; // So nguyen to
+    }
+
+</script>
+
+</body>
+</html>
